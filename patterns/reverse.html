@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse</title>
+</head>
+<body>
+    <label for="name-input">Name:</label>
+<input type="text" id="name-input" placeholder="Enter a name">
+
+<button onclick="addName()">Add Name</button>
+<button onclick="printReverse()">Print Reverse</button>
+<p></p>
+<script>
+var names = [];
+
+function addName() {
+  let  nameInput = document.querySelector('#name-input');
+  let  name = nameInput.value;
+  names.push(name);
+  nameInput.value = '';
+  nameInput.focus() 
+}
+
+function printReverse() {
+  for (var i = names.length - 1; i >= 0; i--) {
+    let reversedName = names[i].split('').reverse().join('');
+    let result = document.querySelector("p")
+    result.innerHTML += reversedName+"<br>"
+  }
+  names = []
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random_Baground</title>
+</head>
+<body>
+    <input type="text">
+    <button>Genrate Colour</button>
+    <script>
+        const button = document.querySelector("button");
+        button.onclick = () => {
+            let colour = "#"
+            let hexa = "0123456789abcdef"
+            for (let i = 0; i < 6; i++) {
+                colour += hexa.split("")[Math.floor(Math.random()*hexa.length)]; 
+            }
+            document.body.style.backgroundColor = colour
+            document.querySelector("input").value = colour
+        }
+    </script>
+</body>
+</html> 

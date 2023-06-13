@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea</title>
+</head>
+<body>
+    <textarea name="text" id="aa" cols="30" rows="10" maxlength="100"></textarea>
+    <p></p>
+
+    <script>
+        let a = document.querySelector("#aa")
+        let p = document.querySelector("p")
+        a.addEventListener("keyup",function () {
+            var char = a.value
+            p.innerHTML = 100 -char.length
+            if (char.length >= 80) {
+                p.style.color = "red"                
+            } else {
+                p.style.color = "black"
+            }
+        })
+    </script>
+</body>
+</html>

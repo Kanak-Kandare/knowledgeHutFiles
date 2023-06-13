@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="collapsing.css">
+    <title>heading</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="container">
+        <h1>Heading <i class="fa-solid fa-plus"></i></h1>
+        <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Nobis sit corporis ipsum harum aspernatur totam at dolorum, 
+            illo earum odio beatae ratione magni, 
+            asperiores temporibus sint atque numquam labore rerum!</p>
+        </div>
+        <div class="container">
+            <h1>Heading <i class="fa-solid fa-plus"></i></h1>
+            <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Nobis sit corporis ipsum harum aspernatur totam at dolorum, 
+                illo earum odio beatae ratione magni, 
+                asperiores temporibus sint atque numquam labore rerum!</p>
+            </div>
+            <div class="container">
+                <h1>Heading <i class="fa-solid fa-plus"></i></h1>
+                <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nobis sit corporis ipsum harum aspernatur totam at dolorum, 
+                    illo earum odio beatae ratione magni, 
+                    asperiores temporibus sint atque numquam labore rerum!</p>
+                </div>
+                <div class="container">
+                    <h1>Heading <i class="fa-solid fa-plus"></i></h1>
+                    <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nobis sit corporis ipsum harum aspernatur totam at dolorum, 
+                        illo earum odio beatae ratione magni, 
+                        asperiores temporibus sint atque numquam labore rerum!</p>
+                    </div>
+                    <div class="container">
+                        <h1>Heading <i class="fa-solid fa-plus"></i></h1>
+                        <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nobis sit corporis ipsum harum aspernatur totam at dolorum, 
+                            illo earum odio beatae ratione magni, 
+                            asperiores temporibus sint atque numquam labore rerum!</p>
+                        </div>
+    </div>
+    <script>
+        const containers = document.querySelectorAll('.container');
+
+            containers.forEach(container => {
+            const icon = container.querySelector('i');
+            const paragraph = container.querySelector('p');
+
+            icon.addEventListener('click', () => {
+                paragraph.classList.toggle('hidden');
+                icon.classList.toggle('fa-plus');
+                icon.classList.toggle('fa-minus');
+            });
+            });
+            
+            
+            
+            let input = ["america", "Bolivia", "Bhutan", "Costa Rica", "bangladesh", "Canada", "Denmark", "Egypt", "Ethopia"];
+
+            let output = {};
+
+            for (let i = 0; i < input.length; i++) {
+            let firstLetter = input[i][0].toLowerCase();
+            if (output.hasOwnProperty(firstLetter)) {
+                output[firstLetter].push(input[i]);
+            } else {
+                output[firstLetter] = [input[i]];
+            }
+            }
+
+            console.log(output);
+    </script>
+</body>
+</html>

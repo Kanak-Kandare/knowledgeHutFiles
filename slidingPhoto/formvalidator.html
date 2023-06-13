@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormValidator</title>
+    <link rel="stylesheet" href="formvalidator.css">
+</head>
+<body>
+    <form action="">
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age">
+        
+        <label for="phone">Phone no:</label>
+        <input type="text" id="phone">
+        
+        <label for="email">Email Address</label>
+        <input type="email" id="email"><span></span>
+        
+        <label for="">Gender</label>
+        <input type="radio" id="male" name="Gender"><span></span>
+        <label for="male">Male</label>
+        <input type="radio" name="Gender" id="female"><span></span>
+        <label for="female">Female</label>
+        <input type="radio" name="Gender" id="others"><span></span>
+        <label for="others">Others</label>
+
+        <select name="" id="Hometown">
+            <option value="">select an option</option>
+            <option value="pune">Pune</option>
+            <option value="nagpur">Nagpur</option>
+            <option value="Mumbai">Mumbai</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        form= document.querySelector("form")
+        
+        form.onsubmit = (e)=> {
+            e.preventDefault()
+        let name = document.querySelector("#name")
+        let age = document.querySelector("#age")
+        let phone = document.querySelector("#phone")
+        let email = document.querySelector("#email")
+
+        let nameex = /^[a-zA-Z]{2,15}$/
+        let ageex = /^\d{2}$/
+        let phoneex = /^\d{10}$/
+        let emailex = /^[a-zA-Z]+\@[a-zA-Z]+\.[a-zA-Z]{2,3}$/
+        if (!name.value.match(nameex)) {
+            name.nextElementSibling.innerHTML = "error";
+        } else {
+            name.nextElementSibling.innerHTML = "";
+        }
+
+        if (!age.value.match(ageex)) {
+            age.nextElementSibling.innerHTML = "error";
+        } else {
+            age.nextElementSibling.innerHTML = "";
+        }
+
+        if (!phone.value.match(phoneex)) {
+            phone.nextElementSibling.innerHTML = "error";
+        } else {
+            phone.nextElementSibling.innerHTML = "";
+        }
+
+        if (!email.value.match(emailex)) {
+            email.nextElementSibling.innerHTML = "error";
+        } else {
+            email.nextElementSibling.innerHTML = "";
+        }
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image</title>
+    <link rel="stylesheet" href="sliding.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="slider">
+            <div class="container">
+                
+                <img src="https://picsum.photos/921/500/?=101" alt="">
+                <img src="https://picsum.photos/921/500/?=102" alt="">
+                <img src="https://picsum.photos/921/500/?=103" alt="">
+                <img src="https://picsum.photos/921/500/?=104" alt="">
+                <img src="https://picsum.photos/921/500/?=105" alt="">
+                
+            </div>
+        </div>
+        <button>Previous</button>
+        <button>Next</button>
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+        const images = document.querySelectorAll('.container img');
+        const prevBtn = document.querySelector('button:first-of-type');
+        const nextBtn = document.querySelector('button:last-of-type');
+        
+      
+        let currentIndex = 0;
+        
+        
+        function handlePrevClick() {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          container.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        
+        function handleNextClick() {
+          currentIndex = (currentIndex + 1) % images.length;
+          container.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        
+      
+        prevBtn.addEventListener('click', handlePrevClick);
+        nextBtn.addEventListener('click', handleNextClick);
+        </script>
+</body>
+</html>

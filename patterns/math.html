@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+</head>
+<body>
+    <input type="number">
+    <input type="number">
+    <select name="Math" id="kk">
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="multipy">Multiply</option>
+        <option value="divide">Divide</option>
+        <option value="modulus">Modulus</option>
+    </select> 
+    <p></p>
+    <script>
+     let number1 = document.querySelector("input:nth-of-type(1)")
+     let number2 = document.querySelector("input:nth-of-type(2)")
+     let operation = document.querySelector("select")
+     let result = document.querySelector("p")
+     let calculate = () => {
+        let a = number1.value
+        let b = number2.value
+        let res;
+        switch (operation.value) {
+            case "add":
+                res = a + b
+                break;
+            case "subtract":
+                res = a - b
+                break;
+            case "multiply":
+                res = a * b
+                break;
+            case "divide":
+                res = a / b
+                break;
+            case "modulus":
+                res = a % b
+                break;
+            default:
+                res = ""
+                break;
+        }
+        result.innerHTML = res
+     } 
+     number1.addEventListener("keyup",calculate)
+     number2.addEventListener("keyup",calculate)
+     result.addEventListener("change",calculate)
+    </script>
+</body>
+</html>

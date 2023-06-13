@@ -1,0 +1,44 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
+#wrapper{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.threeboxes{
+    display: flex;
+    width: 70%;
+}
+
+.box{
+    width: 33%;
+    position: relative;
+}
+
+.box img {
+    border-radius: 50%;
+} 
+
+.box img:first-of-type{
+height: 300px;
+width: 300px;
+}
+
+.box img:last-of-type{
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+

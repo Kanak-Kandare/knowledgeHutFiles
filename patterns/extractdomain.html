@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="example@example.com">
+        <button type="button" onclick="extractDomain()">Extract Domain</button>
+      </form>
+      <p></p>
+      
+      <script>
+      function extractDomain() {
+        let emailInput = document.querySelector('#email');
+        let email = emailInput.value;
+        let domain = email.slice(email.lastIndexOf("@") + 1, email.lastIndexOf(".com"));
+        let result = document.querySelector("p")
+        result.innerHTML = domain;
+        emailInput.value = ""
+      }
+      </script>
+</body>
+</html>
+  

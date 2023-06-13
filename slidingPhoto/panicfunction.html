@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const panic = (input)=> {
+        //     return (input.includes(" "))? input.replace(/ /g,"😱").toUpperCase()+"!" : input.toUpperCase()+"!"
+        // }
+        function panic(e) {
+            if(e.length>0){
+                 return e.split(" ").join("😱").toUpperCase()+"!"
+            }
+        }
+        console.log(panic("i am noob"))
+        console.log(panic("oh my god"))
+        console.log(panic("hello"))
+    </script>
+</body>
+</html>

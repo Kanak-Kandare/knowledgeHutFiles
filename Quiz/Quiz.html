@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <button id="start">Start Quiz</button>
+      <div id="quiz">
+        <div class="counter"></div>
+        <div class="question"></div>
+        <div class="option"></div>
+        <button id="submit">Submit</button>
+      </div>
+    </div>
+    <script>
+      const questions = [
+        {
+          question: "2+2",
+          answer: 4,
+          option: [4, 5, 7, 10],
+        },
+        {
+          question: "5+4",
+          answer: 9,
+          option: [9, 2, 7, 8],
+        },
+        {
+          question: "9+6",
+          answer: 15,
+          option: [10, 15, 2, 9],
+        },
+        {
+          question: "6+5",
+          answer: 11,
+          option: [11, 17, 8, 5],
+        },
+      ];
+      
+
+      let randomOrder, questionNumber, Interval, timer, score;
+
+      const button = document.querySelector("button");
+      button.addEventListener("click", startQuiz);
+      const submitButton = document.querySelector("#submit");
+      submitButton.addEventListener("click", checkAnswer);
+      submitButton.style.display = "none";
+
+      function startQuiz() {
+        score = 0;
+        button.style.display = "none";
+        randomOrder = decideOrder();
+        document.querySelector("#quiz").style.display = "block";
+        const counter = document.querySelector(".counter");
+        timer = 5;
+        counter.innerHTML = timer;
+        questionNumber = 0;
+        printQuestion(questionNumber++);
+        Interval = setInterval(() => {
+          if (timer === 0) {
+            timer = 5;
+
+            if (questionNumber === questions.length) {
+              endQuiz();
+            } else {
+              printQuestion(questionNumber++);
+            }
+          } else {
+            counter.innerHTML = timer--;
+          }
+        }, 1000);
+        submitButton.style.display = "block";
+      }
+
+      function printQuestion(questionNumber) {
+        const question = document.querySelector(".question");
+        question.innerHTML = questions[randomOrder[questionNumber]].question;
+        printOption(questionNumber);
+      }
+
+      function decideOrder() {
+        let output = [];
+        while (output.length < questions.length) {
+          let random = Math.floor(Math.random() * questions.length);
+          if (!output.includes(random)) {
+            output.push(random);
+          }
+        }
+        return output;
+      }
+
+      function printOption(questionNumber) {
+        document.querySelector(".option").innerHTML = "";
+        let option = questions[randomOrder[questionNumber]].option;
+        for (let i = 0; i < option.length; i++) {
+          const wrap = document.createElement("label");
+          const input = document.createElement("input");
+          const span = document.createElement("span");
+
+          input.setAttribute("type", "radio");
+          input.setAttribute("name", "option");
+          input.value = option[i];
+          wrap.appendChild(input);
+
+          span.innerHTML = option[i];
+          wrap.appendChild(span);
+          document.querySelector(".option").appendChild(wrap);
+        }
+      }
+
+      function checkAnswer() {
+        const selectedAnswer = document.querySelector(
+          "input[name=option]:checked"
+        ).value;
+        const correctAnswer = questions[randomOrder[questionNumber - 1]].answer;
+        if (selectedAnswer == correctAnswer) {
+          score++;
+        } else {
+          console.log("Wrong!");
+        }
+        questionNumber++;
+        if (questionNumber === questions.length - 1) {
+          endQuiz();
+        } else {
+          timer = 5;
+          printQuestion(questionNumber);
+        }
+      }
+
+      function endQuiz() {
+        clearInterval(Interval);
+        document.querySelector("#quiz").style.display = "none";
+        const result = document.createElement("div");
+        result.innerHTML = `<h2>Your Score: ${score}</h2>`;
+        document.querySelector("#wrapper").appendChild(result);
+      }
+    </script>
+  </body>
+</html>

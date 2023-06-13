@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      function diagonalSum(arr) {
+        if (!Array.isArray(arr) || arr.length === 0) {
+          console.log("Error: Input is not a square array.");
+          return 0;
+        }
+
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          if (typeof arr[i][i] !== "number") {
+            console.log("Error: Element on diagonal is not a number.");
+            return 0;
+          }
+          sum += arr[i][i];
+          sum += arr[i][arr.length - i - 1];
+        }
+        return Math.abs(sum);
+      }
+    </script>
+  </body>
+</html>
