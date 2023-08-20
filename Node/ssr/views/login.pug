@@ -1,0 +1,14 @@
+html
+    head 
+        title Login Page 
+    body 
+        .wrapper 
+            h1 Login Form
+            form( method="post" action="/dashboard")
+                label(for="username") Username 
+                input(type="text" name="username" placeholder="enter username") 
+                br
+                label(for="password") Password 
+                input(type="password" name="password" placeholder="password") 
+                br
+                button(type="submit") Login 

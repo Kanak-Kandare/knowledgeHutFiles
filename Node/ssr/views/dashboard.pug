@@ -1,0 +1,11 @@
+html
+    head 
+        title dashboard 
+    body
+        .wrapper 
+            h1 Welcome to your dashboard 
+            div= "hello " + uname
+            a(href="/logout")  logout
+
+            .postsby
+                include post.pug 
